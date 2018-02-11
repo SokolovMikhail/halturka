@@ -1,0 +1,6 @@
+.daterangepicker{
+	width: max-content !important;
+}
+.time-picker-hidden .daterangepicker .calendar .daterangepicker_input .calendar-time{
+	display: none;
+}

@@ -1,0 +1,114 @@
+/* Чекбоксы */
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,500,700);
+*, *::after, *::before {
+  box-sizing: border-box; }
+
+
+.toggle-button {
+  margin: 0 0px; }
+
+/*
+ * Toggle button styles
+ */
+.toggle-button {
+  position: relative;
+  display: inline-block;
+  color: #fff; }
+  .toggle-button label {
+    display: inline-block;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: left; }
+  .toggle-button input {
+    display: none; }
+  .toggle-button__icon {
+    cursor: pointer;
+    pointer-events: none; }
+    .toggle-button__icon:before, .toggle-button__icon:after {
+      content: "";
+      position: absolute;
+      top: 45%;
+      left: 35%;
+      transition: 0.2s ease-out; }
+
+
+
+/*
+ * Toggle button variables
+ */
+/*
+ * Toggle button styles
+ */
+.mg-0{
+	margin: 0px 0px 0px 0px !important;
+	line-height: 4px;
+	font-size: 7px;	
+}
+.hour-label{
+	width: 17.7px;
+	margin-bottom: 0px !important;
+	font-size: 11px;
+	font-weight: normal;
+	color: #337ab7;
+}
+.hour-day{
+	font-size: 11px;
+	width: 18px;
+	font-weight: normal;
+	color: #337ab7;
+}
+.checkbox-border{
+    border-color: #D9D9D9;
+    border-style: solid;
+    border-width: 1px;	
+}
+.toggle-button--tuuli label {
+  height: 19px;
+  line-height: 50px;
+  transition: all 0.2s;
+  /* border-radius: 2rem;  */
+  }
+  .toggle-button--tuuli label:before, .toggle-button--tuuli label:after {
+    position: absolute;
+    right: 1rem;
+    transition: all 0.2s .1s ease-out; }
+
+.toggle-button--tuuli input[type=checkbox] + label {
+  width: 19px;
+  background: #FFFFFF; }
+  .toggle-button--tuuli input[type=checkbox] + label:before {
+    opacity: 0;
+    transform: translate(0, 20px); }
+  .toggle-button--tuuli input[type=checkbox] + label:after {
+    opacity: 1;
+    transform: translate(0, 0); }
+
+.toggle-button--tuuli input[type=checkbox]:checked ~ label {
+  width: 19px;
+  background: #61B136; }
+
+.toggle-button--tuuli input[type=checkbox]:checked ~ .toggle-button__icon:before {
+  transform: translate(-30%, 100%) rotate(45deg) scale(0.6, 1); }
+
+.toggle-button--tuuli input[type=checkbox]:checked ~ .toggle-button__icon:after {
+  transform: translate(20%) rotate(-45deg); }
+
+.toggle-button--tuuli .toggle-button__icon {
+  position: absolute;
+  height: 19px;
+  width: 22px;
+  top: 0;
+  left: -5px; }
+  .toggle-button--tuuli .toggle-button__icon:before, .toggle-button--tuuli .toggle-button__icon:after {
+    width: 17px;
+    height: 3px;
+    border-radius: 3px;
+    background: #fff;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    
+    top: 48%; }
+  .toggle-button--tuuli .toggle-button__icon:before {
+    transform: rotate(45deg); }
+  .toggle-button--tuuli .toggle-button__icon:after {
+    transform: rotate(-45deg); }
+

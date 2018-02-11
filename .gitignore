@@ -1,0 +1,60 @@
+# custom ignore
+#/.bowerrc
+#/composer.json
+#/composer.lock
+#/init
+#/init.bat
+#/LICENSE.md
+#/README.md
+#/requirements.php
+#/yii.bat
+#
+#backend/
+frontend/modules/admin/controllers/.credentials/
+frontend/modules/admin/controllers/client_secret.json
+common/log
+console/runtime
+frontend/runtime
+frontend/web/uploads
+#tests/
+#vendor/
+
+frontend/uploads/*
+!frontend/uploads/brands/
+!frontend/uploads/devices/
+frontend/uploads/brands/*
+frontend/uploads/devices/*
+
+
+frontend/web/assets
+
+frontend/modules/admin/controllers/.credentials/
+frontend/modules/admin/controllers/client_secret.json
+
+# phpstorm project files
+.idea
+
+# netbeans project files
+nbproject
+
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+
+# windows thumbnail cache
+Thumbs.db
+
+# composer vendor dir
+#/vendor
+
+# composer itself is not needed
+composer.phar
+
+# Mac DS_Store Files
+.DS_Store
+
+# phpunit itself is not needed
+phpunit.phar
+# local phpunit config
+/phpunit.xml
