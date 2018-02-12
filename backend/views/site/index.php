@@ -10,7 +10,7 @@ $this->title = 'My Yii Application';
 			<div class="col-md-12">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<h3 class="panel-title">Developers</h3>
+						<h3 class="panel-title">Темы исков</h3>
 						<div class="pull-right">
 							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
 								<i class="glyphicon glyphicon-filter"></i>
@@ -18,7 +18,7 @@ $this->title = 'My Yii Application';
 						</div>
 					</div>
 					<div class="panel-body">
-						<input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
+						<input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Темы исков" />
 					</div>
 					<table class="table table-hover" id="dev-table">
 						<thead>
