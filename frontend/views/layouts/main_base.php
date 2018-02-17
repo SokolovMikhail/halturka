@@ -22,17 +22,17 @@ AccountAsset::register($this);
 <body>
     <?php $this->beginBody() ?>
     <div class="wrap">
-        // <?php
-            // NavBar::begin([
-                // 'brandLabel' => 'Juridical',
-                // 'brandUrl' => Yii::$app->homeUrl,
-                // 'options' => [
-                    // 'class' => 'navbar-inverse navbar-fixed-top',
-                // ],
-            // ]);
-            // $menuItems = [
-                // ['label' => 'Home', 'url' => ['/site/index']],
-            // ];
+        <?php
+            NavBar::begin([
+                'brandLabel' => 'Juridical',
+                'brandUrl' => Yii::$app->homeUrl,
+                'options' => [
+                    'class' => 'navbar-default navbar-fixed-top',
+                ],
+            ]);
+            $menuItems = [
+                ['label' => 'Home', 'url' => ['/site/index']],
+            ];
             // if (Yii::$app->user->isGuest) {
                 // $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
             // } else {
@@ -42,12 +42,12 @@ AccountAsset::register($this);
                     // 'linkOptions' => ['data-method' => 'post']
                 // ];
             // }
-            // echo Nav::widget([
-                // 'options' => ['class' => 'navbar-nav navbar-right'],
-                // 'items' => $menuItems,
-            // ]);
-            // NavBar::end();
-        // ?>
+            echo Nav::widget([
+                'options' => ['class' => 'navbar-nav navbar-right'],
+                'items' => $menuItems,
+            ]);
+            NavBar::end();
+        ?>
         <div class="container">
 			<div class="row">
 				<div class="col-xs-12 mb-20">
