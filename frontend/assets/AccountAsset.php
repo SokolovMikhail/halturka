@@ -22,8 +22,7 @@ class AccountAsset extends AssetBundle
 		'css/help.css',
 		'css/table.css',
     ];
-    public $js = [
-		'js/bootstrap.js',
+    public $js = [	
 		'js/bootstrap-slider.js',
 		'js/treeview.js', // use?
 		'js/moment.min.js',
