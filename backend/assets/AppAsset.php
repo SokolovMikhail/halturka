@@ -25,8 +25,11 @@ class AppAsset extends AssetBundle
 		'css/font-awesome.min.css'
     ];
     public $js = [
+		'js/bootstrap.js',
+		'js/bootbox.js',
+		'js/bootstrap-select.js',
 		'js/table.js',
-		'js/scripts.js'
+		'js/scripts.js',	
     ];
     public $depends = [
         'yii\web\YiiAsset',

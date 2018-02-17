@@ -34,7 +34,7 @@ $this->title = 'Темы исков';
 				<tbody>
 					<?$i = 1;?>
 					<?foreach($topics as $item){?>
-					<tr data-topic-row="">
+					<tr data-topic-row="<?= $item['id']?>">
 						<td style="width: 10%;"><?= $i?></td>
 						<td style="width: 85%;"><a href="/topic/update/?id=<?= $item['id']?>"><?= $item['name']?></a></td>
 						<td><a href="/topic/update/?id=<?= $item['id']?>"><i class="fa fa-pencil clickable text-black" aria-hidden="true" data-toggle="tooltip" title="Редактировать"></i></a></td>

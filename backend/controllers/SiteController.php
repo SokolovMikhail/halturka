@@ -27,7 +27,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout', 'index', 'delete'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -61,6 +61,16 @@ class SiteController extends Controller
 			'topics' => $topics
 			]);
     }
+	
+    public function actionDelete($id)
+    {
+		$topic = Topic::findOne($id);
+		if($topic->delete()){
+			return true;
+		}else{
+			return false;
+		}
+    }	
 
     public function actionLogin()
     {
