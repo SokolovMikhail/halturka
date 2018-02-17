@@ -42,8 +42,8 @@ class Quiz extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'topic_id' => 'Topic ID',
-            'name' => 'Name',
-            'description' => 'Description',
+            'name' => 'Название',
+            'description' => 'Описание',
         ];
     }
 }

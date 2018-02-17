@@ -27,21 +27,25 @@ AccountAsset::register($this);
                 'brandLabel' => 'Juridical',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
-                    'class' => 'navbar-inverse navbar-fixed-top',
+
+                    'class' => 'navbar-default navbar-fixed-top',
+
                 ],
             ]);
             $menuItems = [
                 ['label' => 'Home', 'url' => ['/site/index']],
             ];
-            if (Yii::$app->user->isGuest) {
-                $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-            } else {
-                $menuItems[] = [
-                    'label' => 'Выйти (' . Yii::$app->user->identity->username . ')',
-                    'url' => ['/site/logout'],
-                    'linkOptions' => ['data-method' => 'post']
-                ];
-            }
+
+            // if (Yii::$app->user->isGuest) {
+                // $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+            // } else {
+                // $menuItems[] = [
+                    // 'label' => 'Выйти (' . Yii::$app->user->identity->username . ')',
+                    // 'url' => ['/site/logout'],
+                    // 'linkOptions' => ['data-method' => 'post']
+                // ];
+            // }
+
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => $menuItems,

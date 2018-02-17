@@ -11,7 +11,11 @@ $( document ).ready(function() {
 
 		console.log($('[' + target + ']'), target);
 	});	
-	
+
+
+	/* ---------------------------------------------
+	 Удаление темы
+	 --------------------------------------------- */		
 	$('body').on('click', '[data-topic-delete]', function(){
 		var deleteId = $(this).data('topic-delete');
 		var parentWrap = $('[data-topic-row="'+deleteId+'"]');
@@ -20,6 +24,35 @@ $( document ).ready(function() {
 			size: 'small',
 			title: 'Удаление темы',
 			message: 'Вы действительно хотите удалить тему и все связанные с ней опросы?',
+			callback: function(result){
+				if (result){					
+					$.ajax({
+						url: '/topic/delete/?id=' + deleteId,
+						success: function(result){
+							if(result){
+								parentWrap.remove();
+							}				
+						}
+					});					
+				}else{
+					console.log('Ну ладно');
+				}
+			}
+		});		
+	});	
+
+
+	/* ---------------------------------------------
+	 Удаление опроса
+	 --------------------------------------------- */	
+	$('body').on('click', '[data-quiz-delete]', function(){
+		var deleteId = $(this).data('quiz-delete');
+		var parentWrap = $('[data-quiz-row="'+deleteId+'"]');
+			
+		bootbox.confirm({ 
+			size: 'small',
+			title: 'Удаление темы',
+			message: 'Вы действительно хотите удалить опрос?',
 			callback: function(result){
 				if (result){					
 					$.ajax({

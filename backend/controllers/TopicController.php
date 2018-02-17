@@ -75,5 +75,16 @@ class TopicController extends Controller
         return $this->render('update', [
 			'model' => $model
 		]);
+    }
+
+
+    public function actionDelete($id)
+    {
+		$topic = Topic::findOne($id);
+		if($topic->delete()){
+			return true;
+		}else{
+			return false;
+		}
     }	
 }

@@ -61,3 +61,27 @@ body{
     font-size: 25px;
     font-weight: bold !important;
 }
+.button-start{
+	margin-top: 40px;
+	height: 70px;
+	font-size:23px !important;
+	text-align:center !important;
+	border-color: white !important;
+	border-radius:6px !important;
+}
+.button-start:hover { 
+    background-color: white !important;
+	color:#337ab7 !important;
+}
+.button-help{
+	margin-top: 80px;
+	height: 70px;
+	font-size:23px !important;
+	text-align:center !important;
+	border-color: white !important;
+	border-radius:6px !important;
+}
+.button-help:hover { 
+    background-color: white !important;
+	color:#337ab7 !important;
+}
