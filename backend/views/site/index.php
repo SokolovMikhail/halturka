@@ -27,14 +27,18 @@ $this->title = 'Темы исков';
 					<tr>
 						<th>#</th>
 						<th>Название темы</th>
+						<th></th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
 					<?$i = 1;?>
 					<?foreach($topics as $item){?>
 					<tr>
-						<td><?= $i?></td>
-						<td><a href="/topic/update/?id=<?= $item['id']?>"><?= $item['name']?></a></td>
+						<td style="width: 10%;"><?= $i?></td>
+						<td style="width: 85%;"><a href="/topic/update/?id=<?= $item['id']?>"><?= $item['name']?></a></td>
+						<td><a href="/topic/update/?id=<?= $item['id']?>"><i class="fa fa-pencil clickable text-black" aria-hidden="true" data-toggle="tooltip" title="Редактировать"></i></a></td>
+						<td><a href=""><i class="fa fa-times clickable text-red" aria-hidden="true" data-toggle="tooltip" title="Удалить"></i></a></td>
 					</tr>							
 					<?$i++;}?>
 				</tbody>
