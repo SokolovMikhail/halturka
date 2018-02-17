@@ -1,9 +1,9 @@
 <?php
 /* @var $this yii\web\View */
 
-$this->title = 'ВЫБЕРИТЕ ТЕМУ ИСКА';
+$this->title = '';
 ?>
-body {background-color: #03A9F4;}
+
 
 <select class="selectpicker" data-live-search="true">
   <option >Hot Dog, Fries and a Soda</option>
