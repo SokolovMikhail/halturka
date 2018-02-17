@@ -86,23 +86,10 @@ class SiteController extends Controller
         return $this->render('about');
     }
 	
-	
-	public function actionMaintenance()
-    {
-		$option = AppOptions::find()->where(['option_name' => 'maintenance'])->one();
-		if($option && $option->option_value){
-			$now = TimeHelper::createUtcDateTime();//Сейчас
-			$now->setTimezone(new \DateTimeZone('Europe/Moscow'));//Перевод к Московскому времени
-			$maintenanceDate = new \DateTime($option->option_value, new \DateTimeZone('Europe/Moscow'));
-
-			if($now < $maintenanceDate && !(in_array('superadmin', array_keys(Yii::$app->authManager->getRolesByUser(Yii::$app->user->getId()))))){			
-				return $this->render('maintenance', ['time' => $maintenanceDate->format('H:i:s d-m-Y')]);
-				
-			}else{
-				return $this->redirect('/site/',302);
-			}
-		}
-    }
+	public function actionOpros()
+	{
+		return $this->render('questions')
+	}
 	
 		
     public function actionSignup()
