@@ -4,7 +4,6 @@
 $this->title = '';
 ?>
 
-
 <select class="selectpicker" data-live-search="true">
   <option >Hot Dog, Fries and a Soda</option>
   <option >Burger, Shake and a Smile</option>
