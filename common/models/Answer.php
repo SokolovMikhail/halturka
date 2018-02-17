@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use common\models\Quiz;
 
 /**
  * This is the model class for table "answer".
@@ -43,10 +44,27 @@ class Answer extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'question_id' => 'Question ID',
-            'sort' => 'Sort',
-            'text_native' => 'Text Native',
-            'text_doc' => 'Text Doc',
-            'quiz_redirect_id' => 'Quiz Redirect ID',
+            'sort' => 'Порядковый номер',
+            'text_native' => 'Текст для пользователя',
+            'text_doc' => 'Текст для вставки документ',
+            'quiz_redirect_id' => 'Редирект на другой опрос',
         ];
     }
+	
+	
+	public static function getQuizList()
+	{
+		$items = Quiz::find()->asArray()->all();
+		
+		$result = [];
+		$result[0] = 'Переход не требуется';
+		
+		$i = 1;
+		foreach($items as $item){
+			$result[$item['id']] = $item['name'];
+			$i++;
+		}
+		
+		return $result;
+	}
 }

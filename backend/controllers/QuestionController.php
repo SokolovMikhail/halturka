@@ -8,6 +8,7 @@ use yii\filters\VerbFilter;
 use common\models\Topic;
 use common\models\Quiz;
 use common\models\Question;
+use common\models\Answer;
 
 /**
  * Topic controller
@@ -54,11 +55,13 @@ class QuestionController extends Controller
     public function actionCreate($quizId)
     {
 		$model = new Question();
-		$model->quiz_id = $quizId;
+		
+		$quiz = Quiz::findOne($quizId);
+		$model->quiz_id = $quiz->id;
 		
 		if ($model->load(Yii::$app->request->post())) {			
 			$model->save();
-			return $this->redirect(['/question/?quizId='.$quizId]);
+			return $this->redirect(['/question/update/?id='.$model->id]);
 		}
 		
         return $this->render('create', [
@@ -71,13 +74,18 @@ class QuestionController extends Controller
     {
 		$model = Question::findOne($id);
 		
+		$answers = Answer::find()->where(['question_id' => $model->id])->asArray()->orderBy('sort ASC')->all();
+		
+		
+		
 		if ($model->load(Yii::$app->request->post())) {			
 			$model->save();
 			return $this->redirect(['/question/index/?quizId='.$model->quiz_id]);
 		}
 		
         return $this->render('update', [
-			'model' => $model
+			'model' => $model,
+			'answers' => $answers
 		]);
     }	
 	
@@ -85,15 +93,28 @@ class QuestionController extends Controller
     {
 		$questions = Question::find()->where(['quiz_id' => $quizId])->asArray()->orderBy('order_number ASC')->all();
 		
-		// foreach($questions as $item){
-			// $item['native_text'] = mb_substr($item['native_text'], 0, );
-		// }
+		foreach($questions as $key=>$item){
+			if(strlen($item['text_native']) > 256){
+				$questions[$key]['text_native'] = mb_substr($item['text_native'], 0, 256) . '...';
+			}
+		}
 		
 		$quiz = Quiz::findOne($quizId);
+		
         return $this->render('index', [
 			'questions' => $questions,
-			'quizId' => $quizId,
+			'quizId' => $quiz->id,
 			'topicId' => $quiz->topic_id 
 		]);
+    }	
+	
+    public function actionDelete($id)
+    {
+		$topic = Question::findOne($id);
+		if($topic->delete()){
+			return true;
+		}else{
+			return false;
+		}
     }	
 }

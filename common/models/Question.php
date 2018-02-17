@@ -56,6 +56,6 @@ class Question extends \yii\db\ActiveRecord
      */
     public static function getQuestionTypes()
     {
-		return [0 => 'Открытый ответ', 1 => 'Варианты ответа'];
+		return [0 => 'Варианты ответа', 10 => 'Открытый ответ'];
 	}		
 }

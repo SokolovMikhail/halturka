@@ -7,11 +7,13 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use common\models\Topic;
 use common\models\Quiz;
+use common\models\Question;
+use common\models\Answer;
 
 /**
  * Topic controller
  */
-class QuizController extends Controller
+class AnswerController extends Controller
 {
     /**
      * @inheritdoc
@@ -50,14 +52,17 @@ class QuizController extends Controller
         ];
     }
 
-    public function actionCreate($topicId)
+    public function actionCreate($questionId)
     {
-		$model = new Quiz();
-		$model->topic_id = $topicId;
+		$model = new Answer();
+		
+		$quiz = Question::findOne($questionId);
+		
+		$model->question_id = $quiz->id;
 		
 		if ($model->load(Yii::$app->request->post())) {			
 			$model->save();
-			return $this->redirect(['/quiz/index/?topicId='.$topicId]);
+			return $this->redirect(['/question/update/?id='.$model->question_id]);
 		}
 		
         return $this->render('create', [
@@ -68,29 +73,21 @@ class QuizController extends Controller
 	
     public function actionUpdate($id)
     {
-		$model = Quiz::findOne($id);
+		$model = Answer::findOne($id);
 		
 		if ($model->load(Yii::$app->request->post())) {			
 			$model->save();
+			return $this->redirect(['/question/update/?id='.$model->question_id]);
 		}
 		
         return $this->render('update', [
 			'model' => $model
 		]);
-    }	
+    }		
 	
-    public function actionIndex($topicId)
-    {
-		$quizes = Quiz::find()->where(['topic_id' => $topicId])->asArray()->all();
-        return $this->render('index', [
-			'quizes' => $quizes,
-			'topicId' => $topicId
-		]);
-    }
-
     public function actionDelete($id)
     {
-		$topic = Quiz::findOne($id);
+		$topic = Answer::findOne($id);
 		if($topic->delete()){
 			return true;
 		}else{
