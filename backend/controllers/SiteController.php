@@ -60,16 +60,6 @@ class SiteController extends Controller
         return $this->render('index', [
 			'topics' => $topics
 			]);
-    }
-	
-    public function actionDelete($id)
-    {
-		$topic = Topic::findOne($id);
-		if($topic->delete()){
-			return true;
-		}else{
-			return false;
-		}
     }	
 
     public function actionLogin()

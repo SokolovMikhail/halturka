@@ -7,11 +7,12 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use common\models\Topic;
 use common\models\Quiz;
+use common\models\Question;
 
 /**
  * Topic controller
  */
-class QuizController extends Controller
+class QuestionController extends Controller
 {
     /**
      * @inheritdoc
@@ -50,14 +51,14 @@ class QuizController extends Controller
         ];
     }
 
-    public function actionCreate($topicId)
+    public function actionCreate($quizId)
     {
-		$model = new Quiz();
-		$model->topic_id = $topicId;
+		$model = new Question();
+		$model->quiz_id = $quizId;
 		
 		if ($model->load(Yii::$app->request->post())) {			
 			$model->save();
-			return $this->redirect(['/quiz/index/?topicId='.$topicId]);
+			return $this->redirect(['/question/?quizId='.$quizId]);
 		}
 		
         return $this->render('create', [
@@ -68,10 +69,11 @@ class QuizController extends Controller
 	
     public function actionUpdate($id)
     {
-		$model = Quiz::findOne($id);
+		$model = Question::findOne($id);
 		
 		if ($model->load(Yii::$app->request->post())) {			
 			$model->save();
+			return $this->redirect(['/question/index/?quizId='.$model->quiz_id]);
 		}
 		
         return $this->render('update', [
@@ -79,12 +81,19 @@ class QuizController extends Controller
 		]);
     }	
 	
-    public function actionIndex($topicId)
+    public function actionIndex($quizId)
     {
-		$quizes = Quiz::find()->where(['topic_id' => $topicId])->asArray()->all();
+		$questions = Question::find()->where(['quiz_id' => $quizId])->asArray()->orderBy('order_number ASC')->all();
+		
+		// foreach($questions as $item){
+			// $item['native_text'] = mb_substr($item['native_text'], 0, );
+		// }
+		
+		$quiz = Quiz::findOne($quizId);
         return $this->render('index', [
-			'quizes' => $quizes,
-			'topicId' => $topicId
+			'questions' => $questions,
+			'quizId' => $quizId,
+			'topicId' => $quiz->topic_id 
 		]);
     }	
 }

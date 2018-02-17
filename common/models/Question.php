@@ -43,10 +43,19 @@ class Question extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'quiz_id' => 'Quiz ID',
-            'text_native' => 'Text Native',
-            'text_doc' => 'Text Doc',
-            'type' => 'Type',
-            'order_number' => 'Order Number',
+            'text_native' => 'Текст для пользователя',
+            'text_doc' => 'Текст для вставки в документ',
+            'type' => 'Тип ответа',
+            'order_number' => 'Порядковый номер',
         ];
     }
+	
+
+    /**
+     * @inheritdoc
+     */
+    public static function getQuestionTypes()
+    {
+		return [0 => 'Открытый ответ', 1 => 'Варианты ответа'];
+	}		
 }
