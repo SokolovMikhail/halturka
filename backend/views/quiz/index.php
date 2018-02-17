@@ -1,7 +1,7 @@
 <?php
 /* @var $this yii\web\View */
 
-$this->title = 'Опросы по теме';
+$this->title = 'Опросы по теме '.$topic->name;
 $this->params['header_links'] = [
 	[
 		'icon'	=> 'fa-arrow-circle-left',

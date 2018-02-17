@@ -72,6 +72,7 @@ class QuizController extends Controller
 		
 		if ($model->load(Yii::$app->request->post())) {			
 			$model->save();
+			return $this->redirect(['/quiz/index/?topicId='.$model->topic_id ]);
 		}
 		
         return $this->render('update', [
@@ -81,10 +82,12 @@ class QuizController extends Controller
 	
     public function actionIndex($topicId)
     {
+		$topic = Topic::findOne($topicId);
 		$quizes = Quiz::find()->where(['topic_id' => $topicId])->asArray()->all();
         return $this->render('index', [
 			'quizes' => $quizes,
-			'topicId' => $topicId
+			'topicId' => $topicId,
+			'topic' => $topic
 		]);
     }
 
