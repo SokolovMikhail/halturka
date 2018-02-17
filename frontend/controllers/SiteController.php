@@ -13,12 +13,14 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use frontend\models\AppOptions;
 use frontend\models\helpers\TimeHelper;
+use common\models\Topic;
 
 /**
  * Site controller
  */
 class SiteController extends Controller
 {
+	public $layout='account.php';
     /**
      * @inheritdoc
      */
@@ -49,6 +51,8 @@ class SiteController extends Controller
             ],
         ];
     }
+	
+
 
 
     /**
@@ -68,29 +72,12 @@ class SiteController extends Controller
     }
 
 
-    public function actionIndex()
+	public function actionIndex()
     {
-		$bases = require(__DIR__ . '/../../common/config/bases.php');
-		$sdn = explode('.', $_SERVER['HTTP_HOST']);
-		if(count($sdn) == 3 && array_key_exists($sdn[0], $bases)) {
-			if (\Yii::$app->user->isGuest) {
-				$model = new LoginForm();
-				if ($model->load(Yii::$app->request->post()) && $model->login()) {
-					return $this->redirect('/site/index/',302);
-				} 
-				else {
-					return $this->render('login', [
-						'model' => $model,
-					]);
-				}
-			}
-			else{
-				return $this->redirect(Yii::$app->config->params['main_page'],302);
-			}
-		}
-		else{
-			return $this->redirect('/site/about/',302);
-		}
+		$topics = Topic::find()->asArray()->all();
+        return $this->render('index', [
+			'topics' => $topics
+			]);
     }
 	
 
