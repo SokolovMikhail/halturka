@@ -13,14 +13,14 @@
 /*-------------------------------------------------------------------
 	Структура
 -------------------------------------------------------------------*/
-body{
-	padding-top: 0px;
-	color: #454545;
-	background: #fff;
-	font-family: Arial;
-	font-size:12px;
-	background-color:#f5f5f5;
-}
+/* body{ */
+	/* padding-top: 0px; */
+	/* color: #454545; */
+	/* background: #fff; */
+	/* font-family: Arial; */
+	/* font-size:12px; */
+	/* background-color:#f5f5f5; */
+/* } */
 .container{
 	width:1170px; /* disable responsive	*/
 }
@@ -127,6 +127,7 @@ body{
 .text-orange{color:#f3d131}
 .text-pink{color:#f39a99}
 .text-white{color:#ffffff}
+.text-black{color:black}
 
 .red-border{border-color:#de5957;}
 .green-border{border-color:#b9ce37;}
@@ -1202,7 +1203,7 @@ background-color:#FFFFFF}
 	height:60px;
 	bottom:50%;
 	right:40px;
-	background-color:#5cb85c;
+	background-color: #3183a3;
 	color:#FFF !important;
 	border-radius:50px;
 	text-align:center;
@@ -1210,8 +1211,9 @@ background-color:#FFFFFF}
 	font-size: 18px;
 }
 .my-float{
-	
-	margin-top:22px;
+    margin-top: 17px;
+    margin-left: 2px;
+	font-size: 30px !important;
 }
 .clickable{
 	cursor:pointer !important;
