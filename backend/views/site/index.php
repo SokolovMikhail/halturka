@@ -2,6 +2,7 @@
 /* @var $this yii\web\View */
 
 $this->title = 'Темы исков';
+$this->params['breadcrumbs'] = [];
 ?>
 <div class="row">
 	<div class="col-xs-12">				

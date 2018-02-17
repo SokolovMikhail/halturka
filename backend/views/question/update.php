@@ -11,7 +11,7 @@ $this->params['header_links'] = [
 		'link'	=> '/question/index/?quizId='.$model->quiz_id,
 	],
 ];
-$this->title = 'Создать новый вопрос';
+$this->title = 'Редактирование вопроса';
 ?>
 <div class="row">
 	<div class="col-md-12">

@@ -54,10 +54,18 @@ class QuestionController extends Controller
 
     public function actionCreate($quizId)
     {
+		$questions = Question::find()->where(['quiz_id' => $quizId])->orderBy('order_number ASC')->asArray()->all();
+		
+		$orderNumber = 1;
+		if(count($questions)){
+			$orderNumber = $questions[count($questions) - 1]['order_number'] + 1;
+		}
+			
 		$model = new Question();
 		
 		$quiz = Quiz::findOne($quizId);
 		$model->quiz_id = $quiz->id;
+		$model->order_number = $orderNumber;
 		
 		if ($model->load(Yii::$app->request->post())) {			
 			$model->save();
@@ -104,7 +112,8 @@ class QuestionController extends Controller
         return $this->render('index', [
 			'questions' => $questions,
 			'quizId' => $quiz->id,
-			'topicId' => $quiz->topic_id 
+			'topicId' => $quiz->topic_id,
+			'quiz' => $quiz
 		]);
     }	
 	

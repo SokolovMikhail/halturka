@@ -54,7 +54,15 @@ class AnswerController extends Controller
 
     public function actionCreate($questionId)
     {
+		$answers = Answer::find()->where(['question_id' => $questionId])->orderBy('sort ASC')->asArray()->all();
+		
+		$sort = 1;
+		if(count($answers)){
+			$sort = $answers[count($answers) - 1]['sort'] + 1;
+		}		
+			
 		$model = new Answer();
+		$model->sort = $sort;
 		
 		$quiz = Question::findOne($questionId);
 		
