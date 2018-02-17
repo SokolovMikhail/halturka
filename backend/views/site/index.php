@@ -1,50 +1,47 @@
 <?php
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Темы исков';
 ?>
-<div class="site-index">
-    <div class="body-content">
-
-        <div class="row">
-			<div class="col-md-12">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<h3 class="panel-title">Темы исков</h3>
-						<div class="pull-right">
-							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
-								<i class="glyphicon glyphicon-filter"></i>
-							</span>
-						</div>
-					</div>
-					<div class="panel-body">
-						<input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Темы исков" />
-					</div>
-					<table class="table table-hover" id="dev-table">
-						<thead>
-							<tr>
-								<th>#</th>
-								<th>Название темы</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>1</td>
-								<td>Kilgore</td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>Bob</td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>Holden</td>
-							</tr>
-						</tbody>
-					</table>
+<div class="row">
+	<div class="col-xs-12">				
+			<a href="/topic/create/" class="btn btn-primary mb-10" data-stage-topic-add="">Добавить тему</a>					
+	</div>				
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">Темы исков</h3>
+				<div class="pull-right">
+					<span class="clickable filter" data-toggle="tooltip" title="Поиск" data-container="body">
+						<i class="glyphicon glyphicon-search"></i>
+					</span>
 				</div>
 			</div>
-        </div>
-
-    </div>
+			<div class="panel-body-hide">
+				<input type="text" class="form-control mt-10 mb-10" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Темы исков" />
+			</div>
+			<table class="table table-hover" id="dev-table">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Название темы</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?$i = 1;?>
+					<?foreach($topics as $item){?>
+					<tr>
+						<td><?= $i?></td>
+						<td><a href="/topic/update/?id=<?= $item['id']?>"><?= $item['name']?></a></td>
+					</tr>							
+					<?$i++;}?>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>
+<a href="/topic/create/" class="float clickable" data-float-button-target="data-stage-topic-add" data-toggle="tooltip" data-placement="left" title="Добавить тему">
+	<i class="fa fa-plus my-float "></i>
+</a>

@@ -4,7 +4,6 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-
 /* @var $this \yii\web\View */
 /* @var $content string */
 
@@ -25,7 +24,7 @@ AppAsset::register($this);
     <div class="wrap">
         <?php
             NavBar::begin([
-                'brandLabel' => 'My Company',
+                'brandLabel' => 'Juridical',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
@@ -38,7 +37,7 @@ AppAsset::register($this);
                 $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
             } else {
                 $menuItems[] = [
-                    'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+                    'label' => 'Выйти (' . Yii::$app->user->identity->username . ')',
                     'url' => ['/site/logout'],
                     'linkOptions' => ['data-method' => 'post']
                 ];
@@ -49,21 +48,39 @@ AppAsset::register($this);
             ]);
             NavBar::end();
         ?>
-
         <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= $content ?>
+			<div class="row">
+				<div class="col-xs-12 mb-20">
+					<h1 class=""><?= Html::encode($this->title)?></h1>
+					<? if(isset($this->params['header_links'])){?>
+					<div class="page-title_links">
+						<? foreach($this->params['header_links'] as $item){?>
+						<? if(isset($item['roles']) && !array_intersect(Yii::$app->config->params['user']['roles'], $item['roles'])){?>
+						<? continue?>
+						<? }?>
+						<?
+						$options = '';
+						if(isset($item['options'])){
+							foreach($item['options'] as $optionName=>$optionValue){
+								$options .= "$optionName = '$optionValue' ";
+							}
+						}
+						?>
+						<a href="<?= $item['link']?>" class="page-title_links-item" <?= $options?>>
+							<? if(isset($item['icon'])){?><span class="fa <?= $item['icon']?>"></span><? }?><?= $item['title']?>
+						</a>
+						<? }?>
+					</div>
+					<? }?>
+				</div>
+			</div>
+			<?= Breadcrumbs::widget([
+				'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+			]) ?>
+			<?= $content ?>
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-        <p class="pull-right"><?= Yii::powered() ?></p>
-        </div>
-    </footer>
 
     <?php $this->endBody() ?>
 </body>

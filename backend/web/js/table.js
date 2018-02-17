@@ -21,7 +21,7 @@
 						})
 						if($target.find('tbody tr:visible').size() === 0) {
 							var col_count = $target.find('tr').first().find('td').size();
-							var no_results = $('<tr class="filterTable_no_results"><td colspan="'+col_count+'">No results found</td></tr>')
+							var no_results = $('<tr class="filterTable_no_results"><td colspan="'+col_count+'">По вашему запросу ничего не найдено</td></tr>')
 							$target.find('tbody').append(no_results);
 						}
 					}
@@ -40,9 +40,9 @@ $(function(){
 		var $this = $(this), 
 			$panel = $this.parents('.panel');
 		
-		$panel.find('.panel-body').slideToggle();
+		$panel.find('.panel-body-hide').slideToggle();
 		if($this.css('display') != 'none') {
-			$panel.find('.panel-body input').focus();
+			$panel.find('.panel-body-hide input').focus();
 		}
 	});
 	$('[data-toggle="tooltip"]').tooltip();

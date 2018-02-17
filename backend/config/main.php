@@ -29,6 +29,24 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+		'urlManager' => [
+			'enablePrettyUrl' => true,
+			'showScriptName' => false,
+			'suffix' => '/', 
+			'rules' => [
+				'<_c:[\w\-]+>/<id:\d+>' => '<_c>/view',
+				'<_c:[\w\-]+>' => '<_c>/index',
+				'<_c:[\w\-]+>/<_a:[\w\-]+>/' => '<_c>/<_a>',
+				'<_c:[\w\-]+>/<_a:[\w\-]+>/<id:\d+>' => '<_c>/<_a>',
+				'<module:\w+>/<_c:[\w\-]+>/<_a:[\w\-]+>' => '<module>/<_c>/<_a>',
+				// 'positioning/' => 'positioning/default/index',
+				// 'positioning/<_a>' => 'positioning/default/<_a>',
+				// 'wms/' => 'positioning/default/index',
+				// 'wms/<_a>' => 'positioning/default/<_a>',
+				// 'sportmasterwms/' => 'sportmasterwms/default/index',
+				// 'sportmasterwms/<_a>' => 'sportmasterwms/default/<_a>/',
+			],
+		],		
     ],
     'params' => $params,
 ];

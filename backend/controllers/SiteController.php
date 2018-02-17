@@ -6,6 +6,7 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use common\models\LoginForm;
 use yii\filters\VerbFilter;
+use common\models\Topic;
 
 /**
  * Site controller
@@ -55,7 +56,10 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+		$topics = Topic::find()->asArray()->all();
+        return $this->render('index', [
+			'topics' => $topics
+			]);
     }
 
     public function actionLogin()

@@ -28,6 +28,7 @@ class Topic extends \yii\db\ActiveRecord
     {
         return [
             [['name'], 'string', 'max' => 512],
+			[['name'], 'required',  'message'=>'Поле не может быть пустым.'],
             [['description'], 'string', 'max' => 2048],
         ];
     }
@@ -39,8 +40,8 @@ class Topic extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'description' => 'Description',
+            'name' => 'Название',
+            'description' => 'Описание',
         ];
     }
 }
