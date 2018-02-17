@@ -29,17 +29,6 @@ $this->beginPage()
 
 		<div id="wrapper" class="vis">
         <div class="overlay"></div>
-    
-        <!-- Sidebar -->
-        <nav class="navbar navbar-inverse sidebar navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-		<?= NavMenuWidget::widget(['current'=>$this->params['main_nav_current'], 'name' => 'leftNav'])?>
-		</nav>
-		
-		<button type="button" class="hamburger is-closed nav-button" data-toggle="offcanvas">
-			<span class="hamb-top"></span>
-			<span class="hamb-middle"></span>
-			<span class="hamb-bottom"></span>
-		</button>
 		
 		<div class="main">
 			<div class="container">

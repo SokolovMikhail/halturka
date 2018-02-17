@@ -20,7 +20,7 @@ use common\models\Topic;
  */
 class SiteController extends Controller
 {
-	public $layout='account.php';
+	public $layout='main_base.php';
     /**
      * @inheritdoc
      */

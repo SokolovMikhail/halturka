@@ -20,6 +20,7 @@ class AccountAsset extends AssetBundle
 		'css/bootstrap-select.css',
 		'css/lightbox.css',
 		'css/help.css',
+		'css/table.css',
     ];
     public $js = [
 		'js/bootstrap.js',
@@ -34,6 +35,8 @@ class AccountAsset extends AssetBundle
 		'js/lightbox.js',
 		'js/help.js',
 		'js/Chart.bundle.js',
+		'js/table.js',
+		'js/scripts.js',		
     ];
     public $depends = [
         'yii\web\YiiAsset',
