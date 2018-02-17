@@ -88,7 +88,7 @@ class SiteController extends Controller
 	
 	public function actionOpros()
 	{
-		return $this->render('questions')
+		return $this->render('questions');
 	}
 	
 		
