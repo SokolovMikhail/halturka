@@ -11,6 +11,6 @@ $this->title = 'Завершение';
 </div>
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
-	 <div class="text-top">Проверьте свою почту, ваш иск лежит уже там</div>
+	 <div class="text-top">Проверьте свою почту, ваш иск лежит уже там.</div>
 	</div>
 </div>
