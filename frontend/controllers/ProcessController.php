@@ -173,6 +173,7 @@ class ProcessController extends Controller
 			$session->close();
 			$session->destroy();
 			//Конец и переход на экран благодарности
+			return $this->redirect(['/process/end/']);
 		}	
 		
 		return $this->render('result', [
@@ -190,5 +191,8 @@ class ProcessController extends Controller
 		$mail->attach($attachement);
 
 		$mail->send();
+	}
+	public function actionEnd(){
+		return $this->render('end');
 	}
 }

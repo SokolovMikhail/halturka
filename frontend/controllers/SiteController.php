@@ -103,9 +103,7 @@ class SiteController extends Controller
         return $this->render('questions', [
 			'quiz' => $quizs 
 			]);
-	}
-	
-		
+	}	
     public function actionSignup()
     {
         echo 'Signup';

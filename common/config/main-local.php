@@ -36,8 +36,8 @@ return [
 			'transport' => [
             'class' => 'Swift_SmtpTransport',
             'host' => 'smtp.yandex.ru',
-            'username' => '',
-            'password' => '',
+            'username' => 'test-server-opros@mail.ru',
+            'password' => 'testserver123',
             'port' => '465',
             'encryption' => 'SSL',
 			],
