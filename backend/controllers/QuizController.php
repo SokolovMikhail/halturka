@@ -56,14 +56,22 @@ class QuizController extends Controller
     {
 		$model = new Quiz();
 		$model->topic_id = $topicId;
+		$uploadModel = new UploadForm();
 		
-		if ($model->load(Yii::$app->request->post())) {			
+		if ($model->load(Yii::$app->request->post())) {
+			$uploadModel->imageFile = UploadedFile::getInstance($uploadModel, 'imageFile');
+			if($uploadModel->imageFile){
+				$fileName = $uploadModel->upload();
+			
+				$model->template_name = $fileName;
+			}
 			$model->save();
 			return $this->redirect(['/quiz/index/?topicId='.$topicId]);
 		}
 		
         return $this->render('create', [
-			'model' => $model
+			'model' => $model,
+			'uploadModel' => $uploadModel
 		]);
     }
 
@@ -75,9 +83,11 @@ class QuizController extends Controller
 		
 		if ($model->load(Yii::$app->request->post())) {	
 			$uploadModel->imageFile = UploadedFile::getInstance($uploadModel, 'imageFile');
-			$fileName = $uploadModel->upload();
-		
-			$model->template_name = $fileName;
+			if($uploadModel->imageFile){
+				$fileName = $uploadModel->upload();
+			
+				$model->template_name = $fileName;
+			}
 			$model->save();
 			return $this->redirect(['/quiz/index/?topicId='.$model->topic_id ]);
 		}
