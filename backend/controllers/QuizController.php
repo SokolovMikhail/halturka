@@ -55,6 +55,7 @@ class QuizController extends Controller
     public function actionCreate($topicId)
     {
 		$model = new Quiz();
+		$model->visibility = 0;
 		$topic = Topic::findOne($topicId);
 		$topicId = $topic->id;
 		$model->topic_id = $topicId;

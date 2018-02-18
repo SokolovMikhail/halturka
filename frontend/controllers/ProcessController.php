@@ -148,7 +148,6 @@ class ProcessController extends Controller
 		$session = Yii::$app->session;
 		$model = new SendForm();
 		if ($model->load(Yii::$app->request->post())) {			
-			// $files = FileHelper::findFiles(Yii::getAlias('@backend').'\web\uploads',['recursive'=>FALSE, 'only'=>['*.doc','*.docx']]);
 			$objPHPWord =  new \PhpOffice\PhpWord\PhpWord();
 			$document = $objPHPWord->loadTemplate(Yii::getAlias('@backend').'\web\uploads/'.$quiz->template_name);
 			$results = $session['results']['questions'];

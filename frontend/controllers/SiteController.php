@@ -99,63 +99,9 @@ class SiteController extends Controller
 		if ($model->load(Yii::$app->request->post())) {
 			return $this->redirect(['/process/index/?quizId='.$model->choice]);
 		}		
-		$quizs = Quiz::find()->where(['topic_id' => $topicId])->asArray()->all();
+		$quizs = Quiz::find()->where(['topic_id' => $topicId, 'visibility' => 0])->asArray()->all();
         return $this->render('questions', [
 			'quiz' => $quizs 
 			]);
 	}	
-    public function actionSignup()
-    {
-        echo 'Signup';
-		// $model = new SignupForm();
-        // if ($model->load(Yii::$app->request->post())) {
-            // if ($user = $model->signup()) {
-                // if (Yii::$app->getUser()->login($user)) {
-                    // return $this->goHome();
-                // }
-            // }
-        // }
-
-        // return $this->render('signup', [
-            // 'model' => $model,
-        // ]);
-    }
-
-    public function actionRequestPasswordReset()
-    {
-        echo 'RequestPasswordReset';
-        // $model = new PasswordResetRequestForm();
-        // if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            // if ($model->sendEmail()) {
-                // Yii::$app->getSession()->setFlash('success', 'Check your email for further instructions.');
-
-                // return $this->goHome();
-            // } else {
-                // Yii::$app->getSession()->setFlash('error', 'Sorry, we are unable to reset password for email provided.');
-            // }
-        // }
-
-        // return $this->render('requestPasswordResetToken', [
-            // 'model' => $model,
-        // ]);
-    // }
-
-    // public function actionResetPassword($token)
-    // {
-        // try {
-            // $model = new ResetPasswordForm($token);
-        // } catch (InvalidParamException $e) {
-            // throw new BadRequestHttpException($e->getMessage());
-        // }
-
-        // if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
-            // Yii::$app->getSession()->setFlash('success', 'New password was saved.');
-
-            // return $this->goHome();
-        // }
-
-        // return $this->render('resetPassword', [
-            // 'model' => $model,
-        // ]);
-    }
 }
