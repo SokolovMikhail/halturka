@@ -14,6 +14,8 @@ use yii\filters\AccessControl;
 use frontend\models\AppOptions;
 use frontend\models\helpers\TimeHelper;
 use common\models\Topic;
+use common\models\Quiz;
+
 
 /**
  * Site controller
@@ -86,9 +88,12 @@ class SiteController extends Controller
         return $this->render('about');
     }
 	
-	public function actionOpros()
-	{
-		return $this->render('questions');
+	public function actionOpros() 
+	{   	
+		$quizs = Quiz::find()->asArray()->all();
+        return $this->render('questions', [
+			'quiz' => $quizs 
+			]);
 	}
 	
 		
