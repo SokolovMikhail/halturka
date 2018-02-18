@@ -7,6 +7,8 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use common\models\Topic;
 use common\models\Quiz;
+use backend\models\UploadForm;
+use yii\web\UploadedFile;
 
 /**
  * Topic controller
@@ -69,14 +71,20 @@ class QuizController extends Controller
     public function actionUpdate($id)
     {
 		$model = Quiz::findOne($id);
+		$uploadModel = new UploadForm();
 		
-		if ($model->load(Yii::$app->request->post())) {			
+		if ($model->load(Yii::$app->request->post())) {	
+			$uploadModel->imageFile = UploadedFile::getInstance($uploadModel, 'imageFile');
+			$fileName = $uploadModel->upload();
+		
+			$model->template_name = $fileName;
 			$model->save();
 			return $this->redirect(['/quiz/index/?topicId='.$model->topic_id ]);
 		}
 		
         return $this->render('update', [
-			'model' => $model
+			'model' => $model,
+			'uploadModel' => $uploadModel
 		]);
     }	
 	

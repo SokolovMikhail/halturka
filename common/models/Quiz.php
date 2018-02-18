@@ -29,7 +29,7 @@ class Quiz extends \yii\db\ActiveRecord
     {
         return [
             [['topic_id'], 'integer'],
-            [['name'], 'string', 'max' => 512],
+            [['name', 'template_name'], 'string', 'max' => 512],
             [['description'], 'string', 'max' => 2048],
         ];
     }
@@ -44,6 +44,8 @@ class Quiz extends \yii\db\ActiveRecord
             'topic_id' => 'Topic ID',
             'name' => 'Название',
             'description' => 'Описание',
+			'template_name' => 'Название используемого шаблона'
         ];
     }
+	
 }

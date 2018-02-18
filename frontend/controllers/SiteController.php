@@ -97,7 +97,7 @@ class SiteController extends Controller
 	{   
 		$model = new TopicForm();
 		if ($model->load(Yii::$app->request->post())) {
-			return $this->redirect(['/quiz/index/?quizId='.$model->choice]);
+			return $this->redirect(['/process/index/?quizId='.$model->choice]);
 		}		
 		$quizs = Quiz::find()->where(['topic_id' => $topicId])->asArray()->all();
         return $this->render('questions', [

@@ -55,7 +55,6 @@ AccountAsset::register($this);
         <div class="container">
 			<div class="row">
 				<div class="col-xs-12 mb-20">
-					<h1 class=""><?= Html::encode($this->title)?></h1>
 					<? if(isset($this->params['header_links'])){?>
 					<div class="page-title_links">
 						<? foreach($this->params['header_links'] as $item){?>
