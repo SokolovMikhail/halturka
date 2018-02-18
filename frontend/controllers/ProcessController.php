@@ -79,14 +79,14 @@ class ProcessController extends Controller
 
 
 	public function actionIndex($quizId, $questionId = false)
-    {
+    {		
 		$quiz = Quiz::findOne($quizId);				
 		if($questionId){
 			$session = Yii::$app->session;
 			
 			$prevQuestion = Question::findOne($questionId);
 			
-			$questions = Question::find()->where(['>', 'order_number', $prevQuestion->order_number])->orderBy('order_number ASC')->asArray()->all();
+			$questions = Question::find()->where(['and', ['>', 'order_number', $prevQuestion->order_number], ['quiz_id' => $quiz->id]])->orderBy('order_number ASC')->asArray()->all();
 			if(count($questions)){
 				$question = $questions[0];
 			}else{
@@ -108,8 +108,7 @@ class ProcessController extends Controller
 			];
 			
 			//--------------------------------------
-			$questions = Question::find()->where(['quiz_id' => $quiz->id])->orderBy('order_number ASC')->asArray()->all();
-						
+			$questions = Question::find()->where(['quiz_id' => $quiz->id])->orderBy('order_number ASC')->asArray()->all();						
 			$question = $questions[0];						
 		}
 		

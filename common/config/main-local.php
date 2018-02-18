@@ -22,10 +22,6 @@ return [
 			'dsn' => 'mysql:host=localhost;dbname='.$dbName,
             'username' => 'root',
             'password' => '',
-
-            // 'dsn' => 'mysql:host=52.169.214.133;dbname='.$dbName,
-            // 'username' => 'extend-test-user',
-            // 'password' => 'a1!a0cQ3w7Q$3w7#E0v5',
 			
             'charset' => 'utf8',
         ],		

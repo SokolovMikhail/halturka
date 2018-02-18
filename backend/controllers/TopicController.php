@@ -6,7 +6,9 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use common\models\Topic;
-
+use common\models\Quiz;
+use common\models\Question;
+use common\models\Answer;
 /**
  * Topic controller
  */
@@ -82,6 +84,18 @@ class TopicController extends Controller
     {
 		$topic = Topic::findOne($id);
 		if($topic->delete()){
+			$quizes = Quiz::find()->where(['topic_id' => $topic->id])->all();
+			foreach($quizes as $item){
+				$questions = Question::find()->where(['quiz_id' => $item->id])->all();
+				foreach($questions as $qstn){
+					$answers = Answer::find()->where(['question_id' => $qstn->id])->all();
+					foreach($answers as $answ){
+						$answ->delete();
+					}
+					$qstn->delete();
+				}
+				$item->delete();
+			}
 			return true;
 		}else{
 			return false;
