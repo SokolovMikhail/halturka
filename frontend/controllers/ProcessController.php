@@ -147,7 +147,7 @@ class ProcessController extends Controller
 		$quiz = Quiz::findOne($quizId);
 		$session = Yii::$app->session;
 		$model = new SendForm();
-		if ($model->load(Yii::$app->request->post())) {
+		if ($model->load(Yii::$app->request->post())) {			
 			// $files = FileHelper::findFiles(Yii::getAlias('@backend').'\web\uploads',['recursive'=>FALSE, 'only'=>['*.doc','*.docx']]);
 			$objPHPWord =  new \PhpOffice\PhpWord\PhpWord();
 			$document = $objPHPWord->loadTemplate(Yii::getAlias('@backend').'\web\uploads/'.$quiz->template_name);
@@ -169,10 +169,11 @@ class ProcessController extends Controller
 			$document->saveAs($file);
 			$this->sendToUser($model->email, $file);
 			unlink($file);
-			$session->close();
-			$session->destroy();
+			// $session->close();
+			// $session->destroy();
 			//Конец и переход на экран благодарности
 			return $this->redirect(['/process/end/']);
+			
 		}	
 		
 		return $this->render('result', [
@@ -191,6 +192,7 @@ class ProcessController extends Controller
 
 		$mail->send();
 	}
+	
 	public function actionEnd(){
 		return $this->render('end');
 	}
