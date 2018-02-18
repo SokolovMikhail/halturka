@@ -185,8 +185,8 @@ class ProcessController extends Controller
 		$mail = Yii::$app->mailer->compose()
 		->setFrom(Yii::$app->mailer->getTransport()->getUsername())
 		->setTo($addressTo)
-		->setSubject('Тест')
-		->setHtmlBody('<h1>Hello</h1>');
+		->setSubject('Juridical Bot')
+		->setHtmlBody('<h1>Ваш документ прикреплен во вложениях</h1>');
 		$mail->attach($attachement);
 
 		$mail->send();
