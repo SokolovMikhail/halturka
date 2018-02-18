@@ -8,17 +8,17 @@ $this->title = '';
 ?>
     <div class="row chat-window col-xs-12" id="chat_window_1" style="margin-left:10px;">
         <div class="col-xs-12 col-md-12">
-        	<div class="panel panel-default">
+        	<div class="panel panel-default chat">
                 <div class="panel-heading top-bar">
                     <div class="col-md-8 col-xs-8">
-                        <h3 class="panel-title mt-20"><span class="glyphicon glyphicon-comment"></span> Chat - Miguel</h3>
+                        <h3 class="panel-title mt-20"><span class="glyphicon glyphicon-comment"></span> Chat</h3>
                     </div>
                 </div>
                 <div class="panel-body msg_container_base">
  
-                    <div class="row msg_container base_receive">
-                        <div class="col-md-2 col-xs-2 avatar">
-                            <img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
+                    <div class="row msg_container">
+                        <div class="col-md-2 col-xs-2 avatar ">
+                            <img src="\img\avatar1.png" class=" img-responsive avatar">
                         </div>
                         <div class="col-md-10 col-xs-10">
                             <div class="messages msg_receive">
@@ -47,12 +47,20 @@ $this->title = '';
 							<textarea class="form-control" name="AnswerForm[answer]" maxlength="4096" rows="4" aria-invalid="false"></textarea>
 							</div>						
 						<?}?>
-						<button type="submit" class="btn btn-primary">
+						<div class = "ta-c"><button type="submit" class="btn btn-primary button-answer ">
 						Ответить
-						</button>						
+						</button></div>
+						
+						
+						<nav aria-label="...">
+						  <ul class="pager"><div>
+							<li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> К предыдущему вопросу</a></li></div>
+						  </ul>
+						</nav>
+										
 					<?php ActiveForm::end(); ?>					                   
                 </div>
     		</div>
         </div>
     </div>
-    
+

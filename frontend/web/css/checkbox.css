@@ -133,7 +133,7 @@ body{
 label{
 	position: relative;
 	cursor: pointer;
-	color: black;
+	color: #333;
 	font-size: 30px;
 }
 
@@ -162,7 +162,7 @@ input[type="radio"] + .label-text:before{
 
 input[type="radio"]:checked + .label-text:before{
 	content: "\f192";
-	color: blue;
+	color: #337ab7;
 	animation: effect 250ms ease-in;
 }
 

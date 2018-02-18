@@ -14,8 +14,8 @@ $( document ).ready(function() {
 			
 		bootbox.confirm({ 
 			size: 'small',
-			title: 'Переход на другой опрос',
-			message: 'Че то про переход',
+			title: 'Пожалуйста перейдите на другую форму иска',
+			message: 'Вы выбрали не ту форму иска.<br>Мы подобрали более подходящую для вас.',
 			buttons: {
 				confirm: {
 					label: 'Переход',

@@ -4,6 +4,13 @@ use yii\bootstrap\ActiveForm;
 
 $this->title = '';
 ?>
+
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+	 <div class="text-top">ВЫБЕРИТЕ ИСК</div>
+	</div>
+</div>
+
 <?php $form = ActiveForm::begin(['id' => 'topic-form']); ?>
 <div class ="row">
 	<div class ="col-md-6 col-md-offset-3">
@@ -18,7 +25,7 @@ $this->title = '';
 </div>
 <div class="row">
 	<div class ="col-md-6 col-md-offset-3 ta-c">
-		<button type="submit" class="btn btn-primary btn-lg button-start">
+		<button type="submit" class="btn btn-primary btn-lg button-start my-form-control">
 		Перейти к опросу
 		</button>
 	</div>
