@@ -24,7 +24,7 @@ $( document ).ready(function() {
 			},			
 			callback: function(result){
 				if (result){					
-					url = "/quiz/index/?quizId="+ quizRedirectId;
+					url = "/process/index/?quizId="+ quizRedirectId;
 					$( location ).attr("href", url);					
 				}else{
 					console.log('Ну ладно');
