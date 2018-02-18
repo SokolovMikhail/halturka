@@ -29,7 +29,7 @@ body{
 }
 .text-top{
 	color:white;
-	font-size: 48px;
+	font-size: 40px;
 	text-align: center;
 	border:3px;
 	margin-top: 100px;
@@ -84,4 +84,16 @@ body{
 .button-help:hover { 
     background-color: white !important;
 	color:#337ab7 !important;
+}
+.name-questions{
+	font-weight: bold;
+	color:white;
+	font-size: 63px;
+	text-align: center;
+	border:3px;
+	margin-top: -40px;
+	
+}
+.main-bacground-questions{
+	
 }

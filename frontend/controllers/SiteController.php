@@ -15,6 +15,7 @@ use frontend\models\AppOptions;
 use frontend\models\helpers\TimeHelper;
 use common\models\Topic;
 use common\models\TopicForm;
+use common\models\Quiz;
 
 /**
  * Site controller
@@ -91,9 +92,13 @@ class SiteController extends Controller
         return $this->render('about');
     }
 	
-	public function actionOpros()
-	{	
-		return $this->render('questions');
+	
+	public function actionOpros($topicId) 
+	{   	
+		$quizs = Quiz::find()->where(['topic_id' => $topicId])->asArray()->all();
+        return $this->render('questions', [
+			'quiz' => $quizs 
+			]);
 	}
 	
 		
