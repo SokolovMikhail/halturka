@@ -14,6 +14,7 @@ use yii\filters\AccessControl;
 use frontend\models\AppOptions;
 use frontend\models\helpers\TimeHelper;
 use common\models\Topic;
+use common\models\TopicForm;
 
 /**
  * Site controller
@@ -74,6 +75,10 @@ class SiteController extends Controller
 
 	public function actionIndex()
     {
+		$model = new TopicForm();
+		if ($model->load(Yii::$app->request->post())) {
+			return $this->redirect(['/site/opros/?topicId='.$model->choice]);
+		}
 		$topics = Topic::find()->asArray()->all();
         return $this->render('index', [
 			'topics' => $topics
@@ -87,7 +92,7 @@ class SiteController extends Controller
     }
 	
 	public function actionOpros()
-	{
+	{	
 		return $this->render('questions');
 	}
 	

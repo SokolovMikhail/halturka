@@ -31,7 +31,7 @@ return [
             ],
         ],
         'errorHandler' => [
-            'errorAction' => 'account/error',
+            'errorAction' => 'site/error',
         ],
 
 		'authManager' => [
