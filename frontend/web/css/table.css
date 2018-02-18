@@ -29,7 +29,7 @@ body{
 }
 .text-top{
 	color:white;
-	font-size: 40px;
+	font-size: 37px;
 	text-align: center;
 	border:3px;
 	margin-top: 100px;
@@ -94,6 +94,33 @@ body{
 	margin-top: -40px;
 	
 }
-.main-bacground-questions{
+.chat{
+	border-radius:6px !important;
+}
+.avatar{
+	border-radius:70px;
+}
+
+.button-answer{
+	height:50px;
+	width:190px;
+	text-align: center !important;
+	font-size:25px !important;
+	font-weight: bold !important;
+	background-color: white !important;
+	color:#337ab7 !important;
+}
+.button-answer:hover { 
+    background-color: #337ab7 !important;
+	color:white !important;
+}
+.button-back{
+	
+	background-color: red !important;
+	
+}
+.button-back:hover { 
+    background-color: #337ab7 !important;
+	color:white !important;
 	
 }

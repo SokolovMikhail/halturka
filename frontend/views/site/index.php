@@ -11,7 +11,7 @@ $this->title = '';
 </div>
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
-	 <div class="text-top">ВЫБЕРИТЕ ТЕМУ ИСКА</div>
+	 <div class="text-top">ВЫБЕРИТЕ КАТЕГОРИЮ ИСКА</div>
 	</div>
 </div>
 <?php $form = ActiveForm::begin(['id' => 'topic-form']); ?>
@@ -28,7 +28,7 @@ $this->title = '';
 <div class="row">
 	<div class ="col-md-6 col-md-offset-3 ta-c">
 		<button type="submit" class="btn btn-primary btn-lg button-start">
-		Заполнить иск
+		Выбрать иск
 		</button>
 	</div>
 </div>
