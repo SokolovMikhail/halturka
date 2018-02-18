@@ -2,7 +2,7 @@
 /* @var $this yii\web\View */
 use yii\bootstrap\ActiveForm;
 
-$this->title = '';
+$this->title = 'Выбор темы';
 ?>
 <div class="row"> 
 	<div class="col-md-12">

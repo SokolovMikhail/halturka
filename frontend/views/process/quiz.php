@@ -4,7 +4,7 @@ use yii\bootstrap\ActiveForm;
 use frontend\assets\CheckboxAsset;
 
 CheckboxAsset::register($this);
-$this->title = '';
+$this->title = 'Опрос';
 ?>
     <div class="row chat-window col-xs-12" id="chat_window_1" style="margin-left:10px;">
         <div class="col-xs-12 col-md-12">
