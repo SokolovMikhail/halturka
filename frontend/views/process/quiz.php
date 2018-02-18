@@ -15,19 +15,35 @@ $this->title = 'Опрос';
                     </div>
                 </div>
                 <div class="panel-body msg_container_base">
- 
+					<div class="row msg_container base_recive">
                     <div class="row msg_container">
                         <div class="col-md-2 col-xs-2 avatar ">
                             <img src="\img\avatar1.png" class=" img-responsive avatar">
                         </div>
                         <div class="col-md-10 col-xs-10">
-                            <div class="messages msg_receive">
+                            <div class="messages msg_recive">
 								<?= $question['text_native']?>
                             </div>
                         </div>
                     </div>
-
+					</div>
+				 <div class="panel-body msg_container_base">
+					<div class="row msg_container base_sent">
+                   <div class="row msg_container">
+                        <div class="col-md-2 col-xs-2">
+							<div class  = "avatar-user">
+								<img src="\img\user.png" class=" img-responsive avatarr">
+							</div>
+						</div>
+                        <div class="col-md-10 col-xs-10">
+                            <div class="messages msg_sent">
+								<?= $question['text_native']?>
+                            </div>
+                        </div>
+                    
+					</div>
                 </div>
+				</div>
                 <div class="panel-footer">
 					<?php $form = ActiveForm::begin(['id' => 'topic-form']); ?>
 						<?if($question['type'] == 0){?>
@@ -62,5 +78,7 @@ $this->title = 'Опрос';
                 </div>
     		</div>
         </div>
+		
+		
     </div>
 

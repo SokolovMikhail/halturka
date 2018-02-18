@@ -99,8 +99,18 @@ body{
 }
 .avatar{
 	border-radius:70px;
+	
 }
-
+.avatar-user{
+	max-width: 70%;
+    margin-left: auto;
+}
+.for-quastions{
+	margin-top:auto;
+}
+.my{
+	height:100vh;
+}
 .button-answer{
 	height:50px;
 	width:190px;
