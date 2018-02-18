@@ -31,6 +31,7 @@ class Quiz extends \yii\db\ActiveRecord
             [['topic_id'], 'integer'],
             [['name', 'template_name'], 'string', 'max' => 512],
             [['description'], 'string', 'max' => 2048],
+			[['visibility'], 'integer'],
         ];
     }
 
@@ -44,7 +45,8 @@ class Quiz extends \yii\db\ActiveRecord
             'topic_id' => 'Topic ID',
             'name' => 'Название',
             'description' => 'Описание',
-			'template_name' => 'Название используемого шаблона'
+			'template_name' => 'Название используемого шаблона',
+			'visibility' => 'Скрывать для пользователей',
         ];
     }
 	
