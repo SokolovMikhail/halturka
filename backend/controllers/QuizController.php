@@ -55,6 +55,8 @@ class QuizController extends Controller
     public function actionCreate($topicId)
     {
 		$model = new Quiz();
+		$topic = Topic::findOne($topicId);
+		$topicId = $topic->id;
 		$model->topic_id = $topicId;
 		$uploadModel = new UploadForm();
 		
@@ -65,6 +67,7 @@ class QuizController extends Controller
 			
 				$model->template_name = $fileName;
 			}
+			
 			$model->save();
 			return $this->redirect(['/quiz/index/?topicId='.$topicId]);
 		}
