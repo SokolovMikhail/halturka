@@ -133,13 +133,14 @@ class ProcessController extends Controller
 			}
 		}
 		
+		//----------------------------Диалог---------------------------------------------
 		$messages = [];
 			
-		foreach($session['results']['questions'] as $questionId=>$answerId){
-			if($questionId == $question['id']){
+		foreach($session['results']['questions'] as $qId=>$answerId){
+			if($qId == $question['id']){
 				break;
 			}
-			$questionPrev = Question::findOne($questionId);
+			$questionPrev = Question::findOne($qId);
 			$messages[] = [
 				'class' => 'base_recive',
 				'text'	=> $questionPrev->text_native,
@@ -162,13 +163,32 @@ class ProcessController extends Controller
 		$messages[] = [
 			'class' => 'base_recive',
 			'text'	=> $question['text_native'],
-		];		
+		];
+		//----------------------------------------------------------------------------
+		//----------------------------BackUrl---------------------------------------------
+		$prevQuestionId = false;
+		
+		if($questionId){
+			$prevQuestion = Question::findOne($questionId);
+		
+			$prevQuestions = Question::find()->where(['and', ['<', 'order_number', $prevQuestion->order_number], ['quiz_id' => $quiz->id]])->orderBy('order_number DESC')->asArray()->all();
+				
+			if(count($prevQuestions)){
+				$prevQuestionId = $prevQuestions[0]['id'];
+			}else{
+				$prevQuestionId = 'first';
+			}
+		}
+		//---------------------------------------------------
+		
 	
 		$answers = Answer::find()->where(['question_id' => $question['id']])->asArray()->all();
 		return $this->render('quiz', [
 			'answers' => $answers,
 			'question' => $question,
-			'messages'	=> $messages
+			'messages'	=> $messages,
+			'prevQuestionId' => $prevQuestionId,
+			'quiz' => $quiz
 		]);
 
     }

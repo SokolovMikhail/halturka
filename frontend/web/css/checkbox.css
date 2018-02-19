@@ -26,6 +26,7 @@
   padding: 10px;
   position: relative;
   overflow: hidden;
+	min-height: 66px;
 }
 .msg_receive{
     padding-left:0;
@@ -136,7 +137,7 @@ label{
 	position: relative;
 	cursor: pointer;
 	color: #333;
-	font-size: 30px;
+	font-size: 24px;
 }
 
 input[type="checkbox"], input[type="radio"]{

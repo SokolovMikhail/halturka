@@ -11,12 +11,21 @@ $this->title = 'Опрос';
 		<div class="panel panel-default chat">
             <div class="panel-heading top-bar pd-t-b-0">
                 <div class="col-md-8 col-xs-8 mt-10">
-					<nav>
-					  <ul class="pager"><div>
-						<li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> К предыдущему вопросу</a></li></div>
-					  </ul>
-					</nav>					
-                    
+					<?if($prevQuestionId){?>
+						<?if($prevQuestionId == 'first'){?>
+						<nav>
+						<ul class="pager"><div>
+							<li class="previous"><a href="/process/index/?quizId=<?= $quiz->id?>"><span aria-hidden="true">&larr;</span> К предыдущему вопросу</a></li></div>
+						</ul>
+						</nav>						
+						<?}else{?>
+						<nav>
+						<ul class="pager"><div>
+							<li class="previous"><a href="/process/index/?quizId=<?= $quiz->id?>&questionId=<?= $prevQuestionId?>"><span aria-hidden="true">&larr;</span> К предыдущему вопросу</a></li></div>
+						</ul>
+						</nav>
+						<?}?>
+                    <?}?>
                 </div>
             </div>
             <div class="panel-body msg_container_base" data-message-box="">
