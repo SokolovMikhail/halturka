@@ -30,9 +30,11 @@
 .msg_receive{
     padding-left:0;
     margin-left:0;
+	margin-top: 8px;
 }
 .msg_sent{
-    padding-bottom:20px !important;
+	margin-top: 8px;
+    padding-bottom:10px !important;
     margin-right:0;
 }
 .messages {

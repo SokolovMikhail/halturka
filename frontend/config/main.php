@@ -10,10 +10,7 @@ return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => [
-    	'log', 
-    	'moduleManager', 
-    	'config', 
-    	'maintenance'
+
     ],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
@@ -47,12 +44,6 @@ return [
 				'<_c:[\w\-]+>/<_a:[\w\-]+>/' => '<_c>/<_a>',
 				'<_c:[\w\-]+>/<_a:[\w\-]+>/<id:\d+>' => '<_c>/<_a>',
 				'<module:\w+>/<_c:[\w\-]+>/<_a:[\w\-]+>' => '<module>/<_c>/<_a>',
-				// 'positioning/' => 'positioning/default/index',
-				// 'positioning/<_a>' => 'positioning/default/<_a>',
-				// 'wms/' => 'positioning/default/index',
-				// 'wms/<_a>' => 'positioning/default/<_a>',
-				// 'sportmasterwms/' => 'sportmasterwms/default/index',
-				// 'sportmasterwms/<_a>' => 'sportmasterwms/default/<_a>/',
 			],
 		],
 		'assetManager' => [
@@ -70,18 +61,4 @@ return [
 		],
     ],
     'params' => $params,
-	'modules' => [
-        // 'racking' => [
-            // 'class' => 'app\modules\racking\Racking',
-		// ],
-		// 'positioning' => [
-            // 'class' => 'app\modules\positioning\Positioning',
-		// ],
-		// 'wms' => [
-            // 'class' => 'frontend\modules\wms\Wms',
-		// ],
-		'maintenance' => [
-            'class' => 'frontend\modules\maintenance\Maintenance',
-		]
-   ],
 ];

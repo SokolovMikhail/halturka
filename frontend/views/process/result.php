@@ -6,7 +6,7 @@ $this->title = 'Завершение';
 ?>
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
-	 <div class="text-top">Ваш иск был составлен. <br> Введите в поле E-male вашу электроннуюпочту.</div>
+	 <div class="text-top">Ваш иск был составлен. <br> Введите в поле E-mail вашу электронную почту.</div>
 	 
 	</div>
 </div>

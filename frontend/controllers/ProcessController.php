@@ -133,10 +133,42 @@ class ProcessController extends Controller
 			}
 		}
 		
+		$messages = [];
+			
+		foreach($session['results']['questions'] as $questionId=>$answerId){
+			if($questionId == $question['id']){
+				break;
+			}
+			$questionPrev = Question::findOne($questionId);
+			$messages[] = [
+				'class' => 'base_recive',
+				'text'	=> $questionPrev->text_native,
+			];
+			
+			$answer = Answer::findOne($answerId);
+			if($answer){
+				$messages[] = [
+					'class' => 'base_sent',
+					'text'	=> $answer->text_native,
+				];				
+			}else{
+				$messages[] = [
+					'class' => 'base_sent',
+					'text'	=> $answerId,
+				];					
+			}
+		}
+		
+		$messages[] = [
+			'class' => 'base_recive',
+			'text'	=> $question['text_native'],
+		];		
+	
 		$answers = Answer::find()->where(['question_id' => $question['id']])->asArray()->all();
 		return $this->render('quiz', [
 			'answers' => $answers,
-			'question' => $question 
+			'question' => $question,
+			'messages'	=> $messages
 		]);
 
     }
@@ -168,8 +200,8 @@ class ProcessController extends Controller
 			$document->saveAs($file);
 			$this->sendToUser($model->email, $file);
 			unlink($file);
-			// $session->close();
-			// $session->destroy();
+			$session->close();
+			$session->destroy();
 			//Конец и переход на экран благодарности
 			return $this->redirect(['/process/end/']);
 			

@@ -31,5 +31,9 @@ $( document ).ready(function() {
 				}
 			}
 		});		
-	});		 
+	});
+
+	// $("[data-message-box]").animate({ scrollTop: $('[data-message-box]').prop("scrollHeight")}, 1000);
+	var d = $('[data-message-box]');
+	d.scrollTop(d.prop("scrollHeight"));
 });
