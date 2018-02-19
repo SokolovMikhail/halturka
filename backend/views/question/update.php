@@ -22,7 +22,6 @@ $this->title = 'Редактирование вопроса';
 					<div class="col-xs-6">
 						<?= $form->field($model, 'order_number')->textInput(['type' => 'number'])?>
 						<?= $form->field($model, 'text_native')->textArea(['maxlength' => 4096, 'rows' => 4]) ?>
-						<?= $form->field($model, 'text_doc')->textArea(['maxlength' => 4096, 'rows' => 4]) ?>
 						<?= $form->field($model, 'type')->dropDownList(Question::getQuestionTypes()) ?>
 						<div class="form-group">
 							<?= Html::submitButton('Сохранить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
