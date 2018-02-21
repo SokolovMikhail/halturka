@@ -1,7 +1,7 @@
 <?php
 /* @var $this yii\web\View */
 
-$this->title = 'Темы исков';
+$this->title = 'Темы документов';
 $this->params['breadcrumbs'] = [];
 ?>
 <div class="row">
@@ -13,7 +13,7 @@ $this->params['breadcrumbs'] = [];
 	<div class="col-md-12">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<h3 class="panel-title">Темы исков</h3>
+				<h3 class="panel-title">Темы документов</h3>
 				<div class="pull-right">
 					<span class="clickable filter" data-toggle="tooltip" title="Поиск" data-container="body">
 						<i class="glyphicon glyphicon-search"></i>

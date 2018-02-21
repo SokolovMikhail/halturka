@@ -7,7 +7,7 @@ $this->title = 'Выбор иска';
 
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
-	 <div class="text-top">ВЫБЕРИТЕ ИСК</div>
+	 <div class="text-top">Выберите документ</div>
 	</div>
 </div>
 
@@ -26,7 +26,7 @@ $this->title = 'Выбор иска';
 <div class="row">
 	<div class ="col-md-6 col-md-offset-3 ta-c">
 		<button type="submit" class="btn btn-primary btn-lg button-start my-form-control">
-		Перейти к опросу
+		Начать
 		</button>
 	</div>
 </div>

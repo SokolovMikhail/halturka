@@ -6,12 +6,12 @@ $this->title = 'Выбор темы';
 ?>
 <div class="row"> 
 	<div class="col-md-12">
-		<div class="text-overtop">СУДА ПУКФЫ</div>
+		<div class="text-overtop">Создай свой документ сам</div>
 	</div>	
 </div>
 <div class="row">
-	<div class="col-md-6 col-md-offset-3">
-	 <div class="text-top">ВЫБЕРИТЕ КАТЕГОРИЮ ИСКА</div>
+	<div class="col-md-8 col-md-offset-2">
+	 <div class="text-top">Выберите категорию документов</div>
 	</div>
 </div>
 <?php $form = ActiveForm::begin(['id' => 'topic-form']); ?>
@@ -28,7 +28,7 @@ $this->title = 'Выбор темы';
 <div class="row">
 	<div class ="col-md-6 col-md-offset-3 ta-c">
 		<button type="submit" class="btn btn-primary btn-lg button-start">
-		Выбрать иск
+		Выбрать категорию
 		</button>
 	</div>
 </div>
